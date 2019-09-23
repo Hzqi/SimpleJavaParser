@@ -15,6 +15,11 @@ public interface ParseResult<A> {
         private A value;
         private Integer length;
 
+        public Success(A value, Integer length) {
+            this.value = value;
+            this.length = length;
+        }
+
         public boolean isSuccess() {
             return true;
         }
@@ -38,6 +43,10 @@ public interface ParseResult<A> {
 
     class Failure<A> implements ParseResult<A> {
         private ParseError error;
+
+        public Failure(ParseError error) {
+            this.error = error;
+        }
 
         public boolean isSuccess() {
             return false;
